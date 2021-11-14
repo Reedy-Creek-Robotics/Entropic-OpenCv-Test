@@ -1,0 +1,26 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+group 'org.entropic'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+
+    // https://mvnrepository.com/artifact/org.openpnp/opencv
+    implementation group: 'org.openpnp', name: 'opencv', version: '4.5.1-2'
+
+    testImplementation 'junit:junit'
+}
+
+/*
+test {
+    useJUnit()
+}
+*/
