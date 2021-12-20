@@ -16,7 +16,8 @@ class QRCodeTest {
 		//Loading the OpenCV core library
 		OpenCV.loadShared()
 
-		def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/qr-code-on-phone.jpg')
+		//def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/qr-code-on-phone.jpg')
+		def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/qr-code-at-angle.jpg')
 		def image = Imgcodecs.imread(imageFile.absolutePath)
 
 		def result = new Mat()
