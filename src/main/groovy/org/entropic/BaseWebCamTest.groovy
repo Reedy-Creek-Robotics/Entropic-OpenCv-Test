@@ -3,10 +3,13 @@ package org.entropic
 import java.awt.*
 import javax.swing.*
 import nu.pattern.OpenCV
+import org.opencv.core.Core
 import org.opencv.core.Mat
 import org.opencv.videoio.VideoCapture
 
 abstract class BaseWebCamTest {
+
+	boolean mirror = true
 
 	private JFrame frame
 	private JLabel panel
@@ -25,10 +28,19 @@ abstract class BaseWebCamTest {
 		init()
 
 		def image = new Mat()
+
 		while (videoCapture.read(image)) {
+
+			if (mirror) {
+				def mirror = new Mat()
+				Core.flip(image, mirror, 1)
+				image = mirror
+			}
+
 			def processed = processFrame(image)
 			showImage(processed)
 		}
+
 	}
 
 	abstract protected Mat processFrame(Mat image)
