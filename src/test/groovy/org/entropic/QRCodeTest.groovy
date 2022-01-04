@@ -34,6 +34,7 @@ class QRCodeTest {
 			Point pt1 = points[i]
 			Point pt2 = points[(i + 1) % points.size()]
 			Imgproc.line(image, pt1, pt2, new Scalar(0, 0, 255), 3)
+
 		}
 
 		Imgcodecs.imwrite('qr-code.jpg', image)
