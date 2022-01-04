@@ -16,6 +16,9 @@ abstract class BaseWebCamTest {
 
 	private VideoCapture videoCapture
 
+	private int frameCount
+	private long frameCountSecond
+
 	BaseWebCamTest() {
 		frame = new JFrame()
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
@@ -39,6 +42,8 @@ abstract class BaseWebCamTest {
 
 			def processed = processFrame(image)
 			showImage(processed)
+
+			updateFps()
 		}
 
 	}
@@ -62,8 +67,24 @@ abstract class BaseWebCamTest {
 		frame.setVisible(true)
 	}
 
+	private void updateFps() {
+		frameCount++
+
+		def second = System.currentTimeMillis() / 1000 as long
+		if (frameCountSecond != second) {
+			frameCountSecond = second
+			frame.setTitle("$this  ($frameCount fps)")
+			frameCount = 0
+		}
+	}
+
 	private void showImage(Mat image) {
 		panel.setIcon(new ImageIcon(ImageUtil.toBufferedImage(image)))
+	}
+
+	@Override
+	String toString() {
+		getClass().simpleName
 	}
 
 }
