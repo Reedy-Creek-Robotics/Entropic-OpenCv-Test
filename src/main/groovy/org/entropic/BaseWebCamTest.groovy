@@ -61,9 +61,9 @@ abstract class BaseWebCamTest {
 		videoCapture.read(image)
 
 		def size = new Dimension(image.width(), image.height())
-
 		frame.setSize(size)
 		panel.setSize(size)
+
 		frame.setVisible(true)
 	}
 

@@ -33,10 +33,10 @@ class WebCamLinesTest extends BaseWebCamTest {
 			//Drawing lines on the image
 			Point pt1 = new Point()
 			Point pt2 = new Point()
-			pt1.x = Math.round(x0 + 1000 * (-b))
-			pt1.y = Math.round(y0 + 1000 * (a))
-			pt2.x = Math.round(x0 - 1000 * (-b))
-			pt2.y = Math.round(y0 - 1000 * (a))
+			pt1.x = Math.round(x0 + 1500 * (-b))
+			pt1.y = Math.round(y0 + 1500 * (a))
+			pt2.x = Math.round(x0 - 1500 * (-b))
+			pt2.y = Math.round(y0 - 1500 * (a))
 			Imgproc.line(image, pt1, pt2, new Scalar(0, 0, 255), 3)
 		}
 
