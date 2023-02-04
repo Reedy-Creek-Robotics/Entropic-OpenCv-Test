@@ -15,17 +15,21 @@ class HoughTransformTest {
 		//Loading the OpenCV core library
 		OpenCV.loadShared()
 
-		def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/mat-2.jpg')
+		def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/mat-3.jpg')
 		def image = Imgcodecs.imread(imageFile.absolutePath)
 
 		def gray = new Mat()
 		Imgproc.cvtColor(image, gray, Imgproc.COLOR_RGBA2GRAY)
+
+		Imgcodecs.imwrite('lines-gray.jpg', gray)
 
 		def edges = new Mat()
 		Imgproc.Canny(gray, edges, 60, 60 * 3, 3, false)
 
 		def cannyColor = new Mat()
 		Imgproc.cvtColor(edges, cannyColor, Imgproc.COLOR_GRAY2BGR)
+
+		Imgcodecs.imwrite('lines-canny.jpg', cannyColor)
 
 		def lines = new Mat()
 		Imgproc.HoughLines(edges, lines, 1, Math.PI / 180, 125)
@@ -38,6 +42,7 @@ class HoughTransformTest {
 			double b = Math.sin(theta)
 			double x0 = a * rho
 			double y0 = b * rho
+
 			//Drawing lines on the image
 			Point pt1 = new Point()
 			Point pt2 = new Point()
