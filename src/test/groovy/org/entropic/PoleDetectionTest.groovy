@@ -9,7 +9,7 @@ import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
 import org.opencv.objdetect.QRCodeDetector
 
-class QRCodeTest {
+class PoleDetectionTest {
 
 	@Test
 	void 'Detect QR code'() {

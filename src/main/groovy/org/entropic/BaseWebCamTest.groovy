@@ -52,7 +52,7 @@ abstract class BaseWebCamTest {
 
 	protected void init() {
 		// Loading the OpenCV core library
-		OpenCV.loadShared()
+		OpenCV.loadLocally()
 
 		videoCapture = new VideoCapture(0)
 

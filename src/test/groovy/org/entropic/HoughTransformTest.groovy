@@ -13,7 +13,7 @@ class HoughTransformTest {
 	@Test
 	void 'Hough transform detects lines'() {
 		//Loading the OpenCV core library
-		OpenCV.loadShared()
+		OpenCV.loadLocally()
 
 		def imageFile = new File(System.getProperty('user.dir'), '/src/test/resources/mat-3.jpg')
 		def image = Imgcodecs.imread(imageFile.absolutePath)
